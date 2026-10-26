@@ -28,13 +28,14 @@ jobs:
             cp fioni-guide-pages.zip /tmp/site.zip
           else
             echo 'downloading package'
-            curl -fsSL --retry 3 -o /tmp/site.zip 'https://tmpfiles.org/dl/wUA3VesnIcqb/fioni-guide-pages.zip'
+            curl -fsSL --retry 3 -A 'Mozilla/5.0 (X11; Linux x86_64)' -o /tmp/site.zip 'https://tmpfiles.org/dl/1793017804.ec91923a8beb3155/wUA3VesnIcqb/fioni-guide-pages.zip'
           fi
+          unzip -t /tmp/site.zip > /dev/null
           rm -rf dist
           mkdir -p dist
           unzip -o /tmp/site.zip -d dist
           test -f dist/index.html
-          ls dist | head
+          ls dist | head -20
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
