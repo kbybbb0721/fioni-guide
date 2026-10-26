@@ -28,7 +28,7 @@ jobs:
             cp fioni-guide-pages.zip /tmp/site.zip
           else
             echo 'downloading package'
-            curl -fsSL --retry 3 -A 'Mozilla/5.0 (X11; Linux x86_64)' -o /tmp/site.zip 'https://tmpfiles.org/dl/1793018177.012eb17ba16d9978/wbAhVKs2m2XD/fioni-guide-pages.zip'
+            curl -fsSL --retry 3 -A 'Mozilla/5.0 (X11; Linux x86_64)' -o /tmp/site.zip 'https://tmpfiles.org/dl/1793018347.86ad8ad6e5b279c3/wCAVVRs6xpQG/fioni-guide-pages.zip'
           fi
           unzip -t /tmp/site.zip > /dev/null
           rm -rf dist
@@ -68,7 +68,7 @@ jobs:
             echo 'package already cached in repo'
             exit 0
           fi
-          curl -fsSL --retry 3 -A 'Mozilla/5.0 (X11; Linux x86_64)' -o fioni-guide-pages.zip 'https://tmpfiles.org/dl/1793018177.012eb17ba16d9978/wbAhVKs2m2XD/fioni-guide-pages.zip'
+          curl -fsSL --retry 3 -A 'Mozilla/5.0 (X11; Linux x86_64)' -o fioni-guide-pages.zip 'https://tmpfiles.org/dl/1793018347.86ad8ad6e5b279c3/wCAVVRs6xpQG/fioni-guide-pages.zip'
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add fioni-guide-pages.zip
