@@ -21,12 +21,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Unzip site
+      - name: Fetch site package
         run: |
+          if [ -f fioni-guide-pages.zip ]; then
+            echo 'using local package'
+            cp fioni-guide-pages.zip /tmp/site.zip
+          else
+            echo 'downloading package'
+            curl -fsSL --retry 3 -o /tmp/site.zip 'https://tmpfiles.org/dl/wUA3VesnIcqb/fioni-guide-pages.zip'
+          fi
           rm -rf dist
           mkdir -p dist
-          unzip -o fioni-guide-pages.zip -d dist
+          unzip -o /tmp/site.zip -d dist
           test -f dist/index.html
+          ls dist | head
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
